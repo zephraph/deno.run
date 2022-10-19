@@ -18,7 +18,8 @@ for await (const { name } of Deno.readDir(".")) {
     `.run/${name.replace(".ts", "")}`,
     outdent`
       #!/usr/bin/env bash
-      deno run ${permissions} ${name} $@
+      DIR=$(cd "$(dirname "\${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+      deno run ${permissions} $DIR/../${name} $@
     `
   );
 }

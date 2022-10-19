@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-deno run --allow-read --allow-write dr.ts $@
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+deno run --allow-read --allow-write $DIR/../dr.ts $@
