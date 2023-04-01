@@ -43,3 +43,16 @@ ls | js ".endsWith('.ts')"
 ```bash
 ls | js "x => !x.endsWith('.ts')"
 ```
+
+## chat-gpt
+
+Takes a piped string and shuttles it off to OpenAI's chat completion API with a prompt to return results as markdown. Results
+are printed to stdout.
+
+```bash
+"Say hello!" | chat-gpt
+```
+
+```
+Hello! How may I assist you today?
+```
