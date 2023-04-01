@@ -17,7 +17,6 @@ const env = await load({
 });
 
 const configuration = new Configuration({
-  organization: "org-wMAXIiPLDKMTAe0KdffaWGX3",
   apiKey: env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
