@@ -1,20 +1,13 @@
 // --allow-env --allow-read --allow-net
-import { load } from "https://deno.land/std@0.182.0/dotenv/mod.ts";
-import {
-  join,
-  fromFileUrl,
-  dirname,
-} from "https://deno.land/std@0.182.0/path/mod.ts";
 import {
   ChatCompletionRequestMessage,
   Configuration,
   OpenAIApi,
 } from "npm:openai";
 import { pipeInput } from "./utils/io.ts";
+import { loadEnv } from "./utils/env.ts";
 
-const env = await load({
-  envPath: join(dirname(fromFileUrl(import.meta.url)), ".env"),
-});
+const env = await loadEnv();
 
 const configuration = new Configuration({
   apiKey: env.OPENAI_API_KEY,
